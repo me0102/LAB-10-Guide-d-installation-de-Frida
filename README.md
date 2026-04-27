@@ -1,7 +1,7 @@
 # Compte Rendu de Lab : Installation et Utilisation de Frida pour la Sécurité Mobile
 
 **Étudiante :** Bouchra Ouzanzoul  
-**Formation :** 2ème année cycle ingénieur - CyberSécurité et Télécommunications (ENSA Marrakech)  
+**Niveau :** 2ème année cycle ingénieur - GCDSTE (ENSA Marrakech)  
 **Cours :** Sécurité des applications mobiles  
 **Date :** 27 Avril 2026
 
@@ -29,7 +29,7 @@
 
 L'objectif de ce laboratoire était de mettre en place un environnement d'analyse dynamique complet pour applications Android en utilisant le framework Frida. Les étapes clés incluaient :
 
-- L'installation du client Frida sur un poste de travail Windows.
+- L'installation du Frida sur un poste de travail Windows.
 - Le déploiement et la configuration de frida-server sur un appareil Android (émulateur).
 - La validation de l'environnement par l'injection de scripts JavaScript (Java et natifs).
 - L'exploration des capacités d'instrumentation pour l'analyse de sécurité (réseau, fichiers, stockage local).
@@ -40,9 +40,9 @@ L'objectif de ce laboratoire était de mettre en place un environnement d'analys
 
 | Composant | Détails |
 |-----------|---------|
-| **Machine hôte** | Windows 10 (Version 10.0.26200) |
-| **Appareil cible** | Émulateur Android (architecture x86_64) |
-| **Outils** | Python 3.9.0, ADB (Android Debug Bridge version 1.0.41) |
+| **Machine hôte** | Windows  |
+| **Appareil cible** | Émulateur Android |
+| **Outils** | Python 3.9.0, ADB  |
 | **Frida version** | 17.9.1 |
 
 ---
