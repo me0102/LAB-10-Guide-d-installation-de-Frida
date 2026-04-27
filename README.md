@@ -113,6 +113,9 @@ L'utilisation de la console interactive a permis d'extraire des informations cri
 
 - **Énumération Java :** Localisation des adresses mémoires de `connect`, `send` et `recv` dans la `libc.so`.
 
+<img width="1056" height="496" alt="Capture d&#39;écran 2026-04-27 095611" src="https://github.com/user-attachments/assets/e4c0fb7c-ea78-4893-9ae7-6391de4326ea" />
+
+
 ### 4.2. Instrumentation et Hooking
 
 Plusieurs scripts avancés ont été déployés pour surveiller les vecteurs d'attaque courants :
@@ -123,6 +126,20 @@ Plusieurs scripts avancés ont été déployés pour surveiller les vecteurs d'a
 | **Stockage local** | Classe `SharedPreferencesImpl` | Lecture et écriture des préférences (clés/valeurs) |
 | **Base de données** | `SQLiteDatabase.execSQL` | Surveillance des requêtes SQLite |
 
+#### Preuves d'interception
+
+**Surveillance du système de fichiers (Natif) :**
+
+<img width="968" height="648" alt="Capture d&#39;écran 2026-04-27 100848" src="https://github.com/user-attachments/assets/30fc9a15-4064-4abc-bd47-7dcd89d5cd96" />
+
+
+**Surveillance des préférences et bases de données (Java) :**
+<img width="958" height="379" alt="Capture d&#39;écran 2026-04-27 101549" src="https://github.com/user-attachments/assets/3d064730-6985-4fb4-b491-2c7d666c3fa1" />
+
+<img width="955" height="444" alt="Capture d&#39;écran 2026-04-27 101353" src="https://github.com/user-attachments/assets/5d2da83e-a09a-47f9-84d8-ddde1dc5ae62" />
+
+
+
 ---
 
 ## 5. Exercices Pratiques et Dépannage
@@ -130,15 +147,27 @@ Plusieurs scripts avancés ont été déployés pour surveiller les vecteurs d'a
 ### 5.1. Preuves de fonctionnement
 
 - **Version Frida :** 17.9.1
+
+<img width="958" height="890" alt="Capture d&#39;écran 2026-04-27 082231" src="https://github.com/user-attachments/assets/5545ed09-b731-489f-9175-4344b63171f6" />
+
 - **Appareils connectés :** `emulator-5556 device`
+
+<img width="487" height="232" alt="Capture d&#39;écran 2026-04-27 082800" src="https://github.com/user-attachments/assets/0b85544c-dedf-421b-98db-99c7f67357b4" />
+
 - **Sortie d'injection :** Succès du `Java.perform` validé par message console.
+
+<img width="1060" height="575" alt="Capture d&#39;écran 2026-04-27 094148" src="https://github.com/user-attachments/assets/ce0c5c7c-ee40-418f-8e25-a16a1b822276" />
 
 ### 5.2. Cas de Dépannage rencontré
 
 Un problème majeur de privilèges a été diagnostiqué lors des premières tentatives d'injection (`unable to access process`).
 
 - **Diagnostic :** Le frida-server tournait avec l'utilisateur `shell`, insuffisant pour instrumenter des processus tiers.
+<img width="963" height="200" alt="Capture d&#39;écran 2026-04-27 084511" src="https://github.com/user-attachments/assets/e0d76a4f-f20e-4720-b08e-e420459ae529" />
+
 - **Correction :** Exécution de `adb root` suivi du redémarrage du serveur. L'usage de l'option `-D emulator-5556` a également permis de lever l'ambiguïté en présence de plusieurs instances d'émulateurs détectées par ADB.
+
+
 
 ---
 
